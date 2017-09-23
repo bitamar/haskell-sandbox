@@ -38,14 +38,8 @@ check secret display guess =
 
 mkTurn :: String -> String -> Int -> IO ()
 mkTurn secret display turn
-  | turn == 0 =
-    do
-      putStr "You lose. It was: "
-      putStrLn secret
-  | display == secret =
-    do
-      putStr secret
-      putStrLn "! You win."
+  | turn == 0 = putStrLn $ "You lose. It was: " ++ secret
+  | display == secret = putStrLn $ secret ++ "! You win."
   | otherwise =  mkGuess secret display turn
 
 
